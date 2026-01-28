@@ -117,30 +117,29 @@
             box-shadow: 0 4px 8px rgba(255,215,0,0.3); 
             margin: 20px 0; 
         }
-        /* Estilo para a oferta limitada */
-        #limited-offer {
-            background-color: #ff0000;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            font-weight: bold;
-            box-shadow: 0 0 20px rgba(255,0,0,0.8);
-            margin-bottom: 20px;
-            border-radius: 10px;
-        }
-        #countdown {
-            font-size: 24px;
+        /* Estilo para a oferta limitada - clean e integrada */
+        .limited-offer {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid #FFD700;
             color: #FFD700;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            font-weight: bold;
             text-shadow: 0 0 10px #FFD700;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .limited-offer #countdown {
+            color: white;
+            font-size: 1em;
         }
         @media (max-width: 768px) { 
             .hero h1 { font-size: 2.5em; } 
             .hero p { font-size: 1.5em; } 
             .hero .price { font-size: 2.2em; } 
             .hero { padding: 80px 20px; }
-            #limited-offer { padding: 15px; font-size: 18px; }
-            #countdown { font-size: 20px; }
+            .limited-offer { padding: 8px 15px; font-size: 1em; }
         }
     </style>
 </head>
@@ -151,12 +150,9 @@
         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&q=80" alt="Ícone luxuoso de estrela" class="luxury-icon">
         <img src="https://images.unsplash.com/photo-1492691527719-9d1e07eab495?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&q=80" alt="Ícone luxuoso de edição" class="luxury-icon">
         <div class="container">
-            <!-- Oferta Limitada Adicionada Aqui -->
-            <div id="limited-offer">
-                <h2>⚡ OFERTA LIMITADA: Desconto Extra de 20% + Bônus Grátis! ⚡</h2>
-                <p>Aproveite agora e receba um guia bônus de tendências TikTok! Oferta válida por:</p>
-                <div id="countdown"></div>
-                <p>Não perca essa chance exclusiva!</p>
+            <!-- Oferta Limitada Clean e Resumida -->
+            <div class="limited-offer">
+                ⚡ Oferta Limitada: 20% OFF + Bônus Grátis! Expira em: <span id="countdown"></span> ⚡
             </div>
             <h1>Domine Cortes e Exploda no TikTok! 🔥</h1>
             <p>Tudo que Você Precisa para Viralizar</p>
@@ -226,8 +222,8 @@
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
                 countdownElement.innerHTML = hours + "h " + minutes + "m " + seconds + "s";
             } else {
-                countdownElement.innerHTML = "Oferta Expirada!";
-                document.getElementById('limited-offer').style.backgroundColor = '#666';
+                countdownElement.innerHTML = "Expirada";
+                document.querySelector('.limited-offer').style.opacity = '0.5';
             }
         }
 
@@ -235,4 +231,4 @@
         updateCountdown(); // Inicializa imediatamente
     </script>
 </body>
-</html># kkkk21w
+</html>
